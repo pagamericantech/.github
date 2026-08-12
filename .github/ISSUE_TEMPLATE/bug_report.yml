@@ -1,0 +1,79 @@
+name: Bug report
+description: Report a bug with enough context, root-cause analysis, and references for anyone to act on it.
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to write a high-quality bug report.
+
+        A good report lets someone who has never seen the problem understand it, reproduce the reasoning, and start fixing it without asking follow-up questions. Write in full sentences, reference code as `path/to/file.ts:line`, and link every claim to evidence (traces, logs, queries, related issues).
+
+        Before submitting, remove or mask sensitive data from everything you paste (error bodies, logs, traces, queries, links): credentials, tokens, authorization headers, cookies, personal data, and payment data. Do not report security vulnerabilities or data exposures through this form; use the organization's private security reporting channel instead.
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Context
+      description: |
+        Explain the background someone needs before reading the problem itself.
+        - Which flow or feature is affected, and what is the expected behavior.
+        - When the problem started, and which incident, alert, or investigation surfaced it (include dates and times in UTC).
+        - The end-to-end flow across services: who publishes or calls what, in which order, and over which protocol (event, HTTP call, queue).
+        - The exact external response or error observed, quoted verbatim when possible (status codes, error bodies).
+        - Whether the failure is definitive (retrying can never succeed until an external condition changes) or transient, and why.
+        - If part of the problem is owned by another service or repository, say so explicitly and link the issue that covers that side, making clear which part THIS issue covers.
+      placeholder: |
+        During the incident on YYYY-MM-DD, <flow> started failing. The flow is: <service A> publishes <event>, <service B> consumes it and calls <service C> at <endpoint>, and <service C> calls <external provider>. Since YYYY-MM-DD the provider responds <status> with <error body> for every attempt. This is a definitive error because <reason>. The <other side> of the problem is covered in <org/repo#issue>; this issue covers <this side>.
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: |
+        The root-cause analysis. Walk the reader through the code path, layer by layer, showing where and why the wrong behavior happens.
+        - Reference every relevant file as `path/to/file.ts:line` (or a line range) and quote the key snippets.
+        - Show how the error propagates: where it originates, which layers catch, transform, rethrow, or ignore it, and what finally reaches the caller or the user.
+        - State precisely why the resulting behavior is wrong from the caller's point of view (for example: the response does not let the caller distinguish a definitive error from a transient one).
+        - Include library or dependency versions when they are part of the cause.
+      placeholder: |
+        In `src/.../file.ts:60-66`, <what the code does>. The error is then rethrown by <layer> (`src/.../other-file.ts:79-82`) without <what is missing>. It reaches <filter/handler> (`src/.../handler.ts:4-8`), which <what it does>, so the response sent to the caller is always <observed response>, with no information about <missing information>. From the caller's point of view, <why this is wrong>.
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives
+      description: |
+        Numbered solution options, each with pros and cons, ending with a recommendation.
+        - Describe each alternative concretely: what changes, where, and what the resulting behavior is.
+        - List pros and cons honestly, including migration effort, blast radius, and consistency with the rest of the system.
+        - Close with a recommendation and the reasoning behind it (for example: option 1 as the targeted fix now, option 2 recorded as a future evolution).
+      placeholder: |
+        1. **<Short name of option 1.>** <What it changes and where.> Pros: <...>. Cons: <...>.
+        2. **<Short name of option 2.>** <What it changes and where.> Pros: <...>. Cons: <...>.
+
+        Recommendation: <which option and why>.
+    validations:
+      required: false
+
+  - type: textarea
+    id: references
+    attributes:
+      label: References
+      description: |
+        Every piece of evidence supporting the analysis, so nobody has to rediscover it.
+        - Code references as `path/to/file.ts:line`, each with a short note on what it shows.
+        - Observability links: traces, log queries, dashboards, monitors (prefer links with a pinned time range).
+        - Related issues and PRs, in this repository or others, with a note on how they relate.
+      placeholder: |
+        - `src/.../file.ts:60-66` (<what this shows>)
+        - Trace showing <behavior>: <link>
+        - Log query for <error message> (last month): <link>
+        - Related: <org/repo#issue> (<how it relates>)
+    validations:
+      required: false
