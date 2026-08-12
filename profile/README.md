@@ -2,7 +2,7 @@
 
 # PagAmerican
 
-**Payments for global e-commerce.**
+**The Conversion Company.**
 
 [Website](https://www.pagamerican.app)
 
@@ -10,16 +10,16 @@
 
 ---
 
-PagAmerican is a payments platform built for e-commerce businesses that sell globally. Founded by Brazilians and headquartered in the United States, we help entrepreneurs run international operations without the overhead of setting up foreign entities.
+PagAmerican is a global product reseller and affiliate management platform. We buy products from brands and resell them to consumers worldwide, managing affiliates, fulfillment, and compliance so our partners can focus on scaling their business.
 
 ## What we build
 
-- **Payments processing** for cross-border e-commerce, end to end.
-- **Intelligent checkout** that adapts offers in real time to increase conversion.
-- **Smart remarketing** that recovers abandoned carts automatically.
-- **Analytics** that turn sales data into commercial decisions.
+- **Checkout builder** with conversion widgets, one-click upsells, and split testing to increase conversion and average order value.
+- **AI recovery engine** that recovers abandoned sales through SMS, email, and voice.
+- **Chargeback reduction** and payment operations for cross-border e-commerce.
+- **Analytics and tracking** that turn sales data into commercial decisions.
 
-AI is a core layer of the platform: our products use AI agents to remove the fragmented tooling that keeps small and medium online retailers from scaling internationally.
+AI is a core layer of the platform: our products use AI agents to remove the fragmented tooling that keeps online retailers from scaling internationally.
 
 ## Get in touch
 

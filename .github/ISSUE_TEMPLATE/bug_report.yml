@@ -10,6 +10,8 @@ body:
 
         A good report lets someone who has never seen the problem understand it, reproduce the reasoning, and start fixing it without asking follow-up questions. Write in full sentences, reference code as `path/to/file.ts:line`, and link every claim to evidence (traces, logs, queries, related issues).
 
+        Before submitting, remove or mask sensitive data from everything you paste (error bodies, logs, traces, queries, links): credentials, tokens, authorization headers, cookies, personal data, and payment data. Do not report security vulnerabilities or data exposures through this form; use the organization's private security reporting channel instead.
+
   - type: textarea
     id: context
     attributes:
